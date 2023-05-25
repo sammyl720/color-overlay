@@ -1,5 +1,6 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { IColorState } from "../models/color.model";
+import { generateLink } from "../utils";
 export const colorFeature = createFeatureSelector<IColorState>('colors');
 
 export const selectFullState = createSelector(
@@ -15,6 +16,11 @@ export const selectBackgroundColor = createSelector(
 export const selectOverlayColor = createSelector(
   colorFeature,
   (state: IColorState) => state.overlay
+);
+
+export const selectUrlWithParams = createSelector(
+  colorFeature,
+  state => generateLink(state)
 );
 
 export const selectText = createSelector(

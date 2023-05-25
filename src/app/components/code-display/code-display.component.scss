@@ -26,9 +26,10 @@
       cursor: pointer;
       transition: 0.05s ease-in;
       user-select: none;
+      -webkit-user-select: none;
 
       &:active {
-        scale: 1.05;
+        transform: scale(1.05);
         color: #a88ad6;
         background-color: transparent;
       }

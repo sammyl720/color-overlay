@@ -1,5 +1,13 @@
 <header class="header">
-  <h1>Colorizer</h1>
+  <div class="header__container">
+    <h1>Colorizer</h1>
+    <ng-container *ngIf="canShare && (linkToShare$ | async) as link">
+      <div (click)="shareLink(link)" class="share-action">
+        <span class="share-action_text">Share</span>
+        <i class="fa-solid fa-share"></i>
+      </div>
+    </ng-container>
+  </div>
 </header>
 <div class="container">
   <app-drawing-board></app-drawing-board>

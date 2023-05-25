@@ -1,3 +1,10 @@
+:host {
+  display: block;
+  width: 100%;
+  max-width: min(1000px, calc(100vw - 48px));
+  margin: auto 12px;
+}
+
 .controls {
   display: flex;
   // gap: 4px;

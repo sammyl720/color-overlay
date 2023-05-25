@@ -25,10 +25,6 @@ export class SliderControlComponent {
     })
   }
 
-  ngAfterViewInit() {
-    this.control.setValue(this.value);
-  }
-
   ngOnDestroy() {
     this.sub.unsubscribe();
   }

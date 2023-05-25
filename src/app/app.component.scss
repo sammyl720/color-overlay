@@ -1,12 +1,14 @@
 .container {
   width: 100%;
-  height: 100%;
   max-width: min(1000px, 100vw);
   margin: 0 auto;
 }
 
 .code-examples {
-  margin: 12px;
+  max-width: min(1000px, calc(100vw - 48px));
+  display: block;
+  width: 100%;
+  margin: 12px auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,8 +17,24 @@
 }
 
 .header {
-  width: 100vw;
-  padding: 8px 12px;
+  max-width: 100vw;
   background-color: #191521;
-  color: #705c8f;
+  overflow: hidden;
+
+  &__container {
+    padding: 8px 12px;
+    color: #705c8f;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: min(1000px, calc(100vw - 48px));
+    margin: 0 auto;
+
+    .share-action {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
 }

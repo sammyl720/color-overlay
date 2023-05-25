@@ -10,6 +10,7 @@ import { ControlsComponent } from './components/controls/controls.component';
 import { ColorControlComponent } from './components/color-control/color-control.component';
 import { SliderControlComponent } from './components/slider-control/slider-control.component';
 import { CodeDisplayComponent } from './components/code-display/code-display.component';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { CodeDisplayComponent } from './components/code-display/code-display.com
   imports: [
     BrowserModule,
     StoreModule.forRoot({ colors: colorReducer }, {}),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]

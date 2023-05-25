@@ -1,6 +1,7 @@
 import { createReducer, on } from "@ngrx/store";
 import { IColorState } from '../models/color.model';
-import { resetAction, updateBackgroundAction, updateOpacityAction, updateOverlayAction, updateTextAction, updateTextColorAction } from "./color.actions";
+import { resetAction, updateBackgroundAction, updateOpacityAction, updateOverlayAction, updatePartialState, updateTextAction, updateTextColorAction } from "./color.actions";
+import { StringOnlyState } from "../utils";
 
 export const initialState: IColorState = {
   background: '#191521',
@@ -17,13 +18,10 @@ export const colorReducer = createReducer(
   on(updateTextColorAction, (state, args) => changeColorState(state, args, 'textColor')),
   on(updateOpacityAction, (state, { opacity }) => ({ ...state, opacity })),
   on(updateTextAction, (state, { text }) => ({ ...state, text })),
-  on(resetAction, (state) => ({ ...initialState }))
+  on(resetAction, (state) => ({ ...initialState })),
+  on(updatePartialState, (state, args) => ({ ...state, ...args }))
 );
 
-type StringKeys<T> = {
-  [K in keyof T]: T[K] extends string ? K : never;
-}[keyof T];
 
-type StringOnlyState = Pick<IColorState, StringKeys<IColorState>>;
 
 export const changeColorState = (state: IColorState, args: { color: string }, field: keyof StringOnlyState): IColorState => ({ ...state, [field]: args.color });
