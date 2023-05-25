@@ -9,14 +9,15 @@ import { DrawingBoardComponent } from './components/drawing-board/drawing-board.
 import { ControlsComponent } from './components/controls/controls.component';
 import { ColorControlComponent } from './components/color-control/color-control.component';
 import { SliderControlComponent } from './components/slider-control/slider-control.component';
-
+import { CodeDisplayComponent } from './components/code-display/code-display.component';
 @NgModule({
   declarations: [
     AppComponent,
     DrawingBoardComponent,
     ControlsComponent,
     ColorControlComponent,
-    SliderControlComponent
+    SliderControlComponent,
+    CodeDisplayComponent
   ],
   imports: [
     BrowserModule,

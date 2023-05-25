@@ -1,4 +1,17 @@
+<header class="header">
+  <h1>Colorizer</h1>
+</header>
 <div class="container">
   <app-drawing-board></app-drawing-board>
   <app-controls></app-controls>
+  <div class="code-examples">
+    <ng-container *ngIf="(htmlText$ | async) as text">
+      <app-code-display (copyRequest)="copyToClipboard(text)" [text]="text" label="HTML">
+      </app-code-display>
+    </ng-container>
+    <ng-container *ngIf="(cssText$ | async) as text">
+      <app-code-display (copyRequest)="copyToClipboard(text)" [text]="text" label="CSS">
+      </app-code-display>
+    </ng-container>
+  </div>
 </div>

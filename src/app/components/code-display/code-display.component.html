@@ -1,0 +1,19 @@
+<div class="code-content">
+  <div class="code-content__header">
+    <div class="overlay"></div>
+    <span class="label">{{ label }}</span>
+    <div (click)="copyRequest.emit()" class="action">
+      <div class="action__text">Copy</div>
+      <div class="action__icon">
+        <i class="fa-solid fa-copy"></i>
+      </div>
+    </div>
+  </div>
+  <div class="code-content__text">
+    <pre>
+      <code>
+        {{ text }}
+      </code>
+    </pre>
+  </div>
+</div>

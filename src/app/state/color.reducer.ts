@@ -5,7 +5,7 @@ import { resetAction, updateBackgroundAction, updateOpacityAction, updateOverlay
 export const initialState: IColorState = {
   background: '#191521',
   overlay: '#FCFAFF',
-  textColor: '#705c8f ',
+  textColor: '#705c8f',
   opacity: 0.05,
   text: 'Combine the background color, overlay color, and opacity to get a nice visual effect'
 }

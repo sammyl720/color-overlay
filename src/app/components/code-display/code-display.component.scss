@@ -1,0 +1,66 @@
+.code-content {
+  display: block;
+  max-width: min(90vw, 800px);
+  width: 100vw;
+  background-color: #191521;
+  color: #a88ad6;
+  padding: 8px 12px;
+  border-radius: 8px;
+  position: relative;
+  width: 100vw;
+
+  &__header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 8px;
+    font-size: 18px;
+
+
+    .action {
+      font-size: 12px;
+      display: flex;
+      gap: 4px;
+      cursor: pointer;
+      transition: 0.05s ease-in;
+      user-select: none;
+
+      &:active {
+        scale: 1.05;
+        color: #a88ad6;
+        background-color: transparent;
+      }
+    }
+  }
+
+  &__text {
+    position: relative;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: #FCFAFF;
+    opacity: 0.05;
+    z-index: 1;
+    left: -12px;
+    right: -12px;
+    top: -8px;
+    pointer-events: none;
+  }
+}
+
+pre {
+  z-index: 2;
+  width: 100%;
+  overflow: auto;
+}
+
+code {
+  // max-width: 80vw;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+}
