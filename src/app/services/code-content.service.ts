@@ -37,6 +37,7 @@ export class CodeContentService {
 }
 
 .card__background {
+  background-color: ${background};
   padding: 1rem;
   border-radius: 4px;
   position: relative;
@@ -44,11 +45,14 @@ export class CodeContentService {
 }
 
 .card__overlay {
+  background-color: ${overlay};
+  opacity: ${opacity};
   position: absolute;
   inset: 0;
   z-index: 1;
 }
 .card__text {
+  color: ${textColor};
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
   font-weight: 500;
