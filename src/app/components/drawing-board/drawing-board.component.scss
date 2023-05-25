@@ -1,0 +1,31 @@
+.drawing-board {
+  width: 100%;
+  padding: 6px 12px;
+  margin: 12px 6px;
+  max-width: max(800px, 75vw);
+
+  &__background {
+    padding: 1rem;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 5px 12px 12px rgba(0, 0, 0, 0.14);
+  }
+
+  &__overlay {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &__text {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 26px;
+    z-index: 2;
+
+    &::active {
+      border: none;
+    }
+  }
+}

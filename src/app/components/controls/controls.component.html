@@ -1,0 +1,11 @@
+<div class="controls" *ngIf="(state$ | async) as state">
+  <app-color-control [value]="state.background" [label]="'Background Color'"
+    (onChange)="updateBackgroundColor($event)"></app-color-control>
+  <app-color-control [value]="state.overlay" [label]="'Overlay Color'"
+    (onChange)="updateOverlayColor($event)"></app-color-control>
+  <app-color-control [value]="state.textColor" [label]="'Text Color'"
+    (onChange)="updateTextColor($event)"></app-color-control>
+  <app-slider-control [value]="state.opacity" [label]="'Overlay opacity'"
+    (onChange)="updateOpacity($event)"></app-slider-control>
+  <div (click)="reset()" class="reset-control">RESET</div>
+</div>

@@ -1,0 +1,52 @@
+input[type="color"] {
+  border: none;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 12px;
+  padding: 0;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  cursor: pointer;
+}
+
+.color-name {
+  display: inline-block;
+  min-width: 80px;
+}
+
+.color-control {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  font-size: 18px;
+  line-height: 24px;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 8px 12px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  box-shadow: inset -1px 2px 12px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  margin: 12px 6px;
+  width: fit-content;
+  min-width: 220px;
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+}
+
+.color-view {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.52);
+  cursor: pointer;
+}

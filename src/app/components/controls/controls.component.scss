@@ -1,0 +1,27 @@
+.controls {
+  display: flex;
+  // gap: 4px;
+  max-width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 12px;
+}
+
+.reset-control {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  font-size: 18px;
+  line-height: 24px;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 8px 12px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  box-shadow: inset -1px 2px 12px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  margin: 12px 6px;
+  width: fit-content;
+  cursor: pointer;
+}

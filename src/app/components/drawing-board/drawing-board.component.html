@@ -1,0 +1,8 @@
+<div class="drawing-board" *ngIf="(colorState$ | async) as state">
+  <div [style.background]="state.background" class="drawing-board__background">
+    <div [style]="{ background: state.overlay, opacity: state.opacity }" class="drawing-board__overlay"></div>
+    <p [style.color]="state.textColor" (input)="updateText($event)" contenteditable class="drawing-board__text">
+      {{ state.text }}
+    </p>
+  </div>
+</div>

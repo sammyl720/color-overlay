@@ -1,0 +1,8 @@
+<div class="color-control">
+  <div class="overlay" [style]="{ background: value }"></div>
+  <label>
+    {{ label }}: <span class="color-name">{{ value }}</span>
+    <input type="color" [formControl]="control" />
+  </label>
+  <div class="color-view" [style]="{ background: value }"></div>
+</div>

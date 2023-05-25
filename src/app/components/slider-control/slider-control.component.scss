@@ -1,0 +1,32 @@
+.slider-control {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  font-size: 18px;
+  line-height: 24px;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 8px 12px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  box-shadow: inset -1px 2px 12px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  margin: 12px 6px;
+  width: fit-content;
+  min-width: 220px;
+  cursor: pointer;
+}
+
+input {
+  height: 24px;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.opacity-value {
+  width: 36px;
+}
