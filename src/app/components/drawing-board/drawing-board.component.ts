@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { Observable, ReplaySubject, Subscription, throttleTime } from 'rxjs';
+import { Observable, ReplaySubject, Subscription, filter, throttleTime } from 'rxjs';
 import { IColorState } from 'src/app/models/color.model';
-import { selectFullState } from 'src/app/state/color.selectors';
+import { selectColorCombo, selectFullState } from 'src/app/state/color.selectors';
 import { updateTextAction } from 'src/app/state/color.actions';
 
 @Component({
@@ -13,9 +13,11 @@ import { updateTextAction } from 'src/app/state/color.actions';
 })
 export class DrawingBoardComponent {
   colorState$: Observable<IColorState>;
+  combinedBackground$: Observable<string>;
 
   stageForTextUpdate$ = new ReplaySubject<string>(1);
   stageSub: Subscription;
+
 
   constructor(private store: Store) {
     this.colorState$ = this.store.select(selectFullState);
@@ -23,7 +25,9 @@ export class DrawingBoardComponent {
       throttleTime(200)
     ).subscribe(text => {
       this.store.dispatch(updateTextAction({ text }));
-    })
+    });
+
+    this.combinedBackground$ = this.store.select(selectColorCombo).pipe(filter((color): color is string => !!color));
 
   }
 

@@ -5,4 +5,7 @@
       {{ state.text }}
     </p>
   </div>
+  <ng-container *ngIf="(combinedBackground$ | async) as combinedBackground">
+    <small>Resulting background: {{ combinedBackground }}</small>
+  </ng-container>
 </div>

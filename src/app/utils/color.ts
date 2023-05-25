@@ -24,6 +24,11 @@ export function lightenColorWithoutAlpha(hexColor: string, hexBgColor: string, o
   return resultHexCode;
 }
 
+export function getMixedColor(state: IColorState) {
+  const { overlay, background, opacity } = state;
+  return lightenColorWithoutAlpha(overlay, background, opacity);
+}
+
 export function isHexColor(color?: string): color is string {
   return !!color && REGEX_HEX_COLOR.test(color);
 }

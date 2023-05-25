@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { IColorState } from "../models/color.model";
-import { generateLink } from "../utils";
+import { generateLink, getMixedColor } from "../utils";
 export const colorFeature = createFeatureSelector<IColorState>('colors');
 
 export const selectFullState = createSelector(
@@ -36,4 +36,9 @@ export const selectOpacity = createSelector(
 export const selectTextColor = createSelector(
   colorFeature,
   (state: IColorState) => state.textColor
+);
+
+export const selectColorCombo = createSelector(
+  colorFeature,
+  getMixedColor
 );
