@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { IOpacity } from 'src/app/models/color.model';
@@ -23,6 +23,12 @@ export class SliderControlComponent {
         this.onChange.emit({ opacity: value });
       }
     })
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['value'] && changes['value'].currentValue !== this.control.value) {
+      this.control.setValue(changes['value'].currentValue);
+    }
   }
 
   ngOnDestroy() {

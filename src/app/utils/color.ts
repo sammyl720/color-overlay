@@ -62,16 +62,20 @@ export function getPartialStateFromQueryParams(params: ParamMap): Partial<IColor
     paramMap: params,
     state: partialState
   })
-  const opacity = Number(params.get('opacity'));
-  if (isValidOpacity(opacity)) {
-    partialState.opacity = opacity;
+
+  const param = params.get('opacity');
+  if (param !== null) {
+    const opacity = Number(param);
+    if (isValidOpacity(opacity)) {
+      partialState.opacity = opacity;
+    }
   }
 
   const text = params.get('text');
   if (!!text) {
     partialState.text = text;
   }
-  console.log(partialState);
+
   return partialState;
 }
 
@@ -95,7 +99,6 @@ type ISetParamColor = {
 function trySetColorFieldFromParamMap(options: ISetParamColor) {
   const { fields: { stateField, paramField }, paramMap, state } = options;
   const paramValue = paramMap.get(paramField);
-  console.log(stateField, paramField, paramValue)
 
   if (!!stateField && paramValue && isHexColor(paramValue)) {
     state[stateField] = paramValue;
