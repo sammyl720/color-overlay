@@ -18,7 +18,7 @@ export function lightenColorWithoutAlpha(hexColor: string, hexBgColor: string, o
   let resultHexCode = '#';
 
   for (let i = 0; i < color.length; i++) {
-    resultHexCode += Math.round(opacity * parseInt(color[i], 16) + (1 - opacity) * parseInt(bgColor[i], 16)).toString(16);
+    resultHexCode += Math.round(opacity * parseInt(color[i], 16) + (1 - opacity) * parseInt(bgColor[i], 16)).toString(16).padStart(2, '0');
   }
 
   return resultHexCode;
