@@ -1,5 +1,6 @@
 import { ParamMap } from "@angular/router";
 import { IColorState } from "../models/color.model";
+import { initialState } from "../state/color.reducer";
 
 export const REGEX_HEX_COLOR = /^#[0-9A-F]{6}$/i;
 
@@ -36,13 +37,19 @@ export function isHexColor(color?: string): color is string {
 export function generateLink(state: IColorState) {
   const url = new URL(window.location.origin);
 
-  url.searchParams.set('text-color', state.textColor);
-  url.searchParams.set('background-color', state.background);
-  url.searchParams.set('overlay-color', state.textColor);
-  url.searchParams.set('opacity', state.opacity.toString());
-  url.searchParams.set('text', state.text);
+  setIfNotDefault('textColor', 'text-color', state, url.searchParams);
+  setIfNotDefault('background', 'background-color', state, url.searchParams)
+  setIfNotDefault('overlay', 'overlay-color', state, url.searchParams);
+  setIfNotDefault('opacity', 'opacity', state, url.searchParams);
+  setIfNotDefault('text', 'text', state, url.searchParams);
 
   return url.toString();
+}
+
+const setIfNotDefault = (field: keyof IColorState, paramField: string, currentState: IColorState, searchParams: URLSearchParams) => {
+  if (currentState[field] !== initialState[field]) {
+    searchParams.set(paramField, currentState[field].toString());
+  }
 }
 
 export function getPartialStateFromQueryParams(params: ParamMap): Partial<IColorState> {
